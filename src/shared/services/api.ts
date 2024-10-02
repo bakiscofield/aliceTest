@@ -30,7 +30,7 @@ const appApi = apiSlice.injectEndpoints({
       query: () => `bookmakers`,
     }),
     getCaissierByPMAndBookmaker: builder.query<Employee[], EmployeeGetParams>({
-      query: ({ bookmaker_id, payment_method_id }) =>
+      query: ({ bookmaker_id, payment_method_id , country_code}) =>
         `employees/filter/${bookmaker_id}/${payment_method_id}/${country_code}`,
     }),
     getEmployeePaymentMethod: builder.query<
