@@ -10,13 +10,12 @@ import {
 interface EmployeeGetParams {
   bookmaker_id: number;
   payment_method_id: number;
-  country_code: number;
+  country: string; 
 }
 interface EmployeePaymentGetParams {
   bookmaker_id: number;
   payment_method_id: number;
   employee_id: number;
-  country_code: string;
 }
 interface DepositParams {
   chat_id: string;
@@ -31,8 +30,9 @@ const appApi = apiSlice.injectEndpoints({
       query: () => `bookmakers`,
     }),
     getCaissierByPMAndBookmaker: builder.query<Employee[], EmployeeGetParams>({
-      query: ({ bookmaker_id, payment_method_id , country_code}) =>
-        `employees/filter/${bookmaker_id}/${payment_method_id}/${country_code}`,
+      query: ({ bookmaker_id, payment_method_id, country }) =>
+        // Utilisation du nouvel endpoint avec le paramètre country
+        `employees/filter/${bookmaker_id}/${payment_method_id}/${country}`,
     }),
     getEmployeePaymentMethod: builder.query<
       EmployeePaymentMethod,
