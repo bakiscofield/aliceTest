@@ -10,6 +10,7 @@ import {
 interface EmployeeGetParams {
   bookmaker_id: number;
   payment_method_id: number;
+  country_code: number;
 }
 interface EmployeePaymentGetParams {
   bookmaker_id: number;
