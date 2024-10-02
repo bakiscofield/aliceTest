@@ -16,7 +16,7 @@ interface EmployeePaymentGetParams {
   bookmaker_id: number;
   payment_method_id: number;
   employee_id: number;
-  country_code: number;
+  country_code: string;
 }
 interface DepositParams {
   chat_id: string;
