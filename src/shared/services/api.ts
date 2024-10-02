@@ -15,6 +15,7 @@ interface EmployeePaymentGetParams {
   bookmaker_id: number;
   payment_method_id: number;
   employee_id: number;
+  country_code: number;
 }
 interface DepositParams {
   chat_id: string;
@@ -30,7 +31,7 @@ const appApi = apiSlice.injectEndpoints({
     }),
     getCaissierByPMAndBookmaker: builder.query<Employee[], EmployeeGetParams>({
       query: ({ bookmaker_id, payment_method_id }) =>
-        `employees/filter/${bookmaker_id}/${payment_method_id}`,
+        `employees/filter/${bookmaker_id}/${payment_method_id}/${country_code}`,
     }),
     getEmployeePaymentMethod: builder.query<
       EmployeePaymentMethod,
